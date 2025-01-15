@@ -1,6 +1,8 @@
 
 # Week 1: Introduction to Introduction to the Theory of Computation
 
+![](figures/turing_machine.jpg)
+
 Textbook: Chapter 0 / Introduction
 
 # Why? (Motivation)
@@ -22,6 +24,8 @@ Textbook: Chapter 0 / Introduction
 - Complexity theory
     - How well have we solved a problem?
 
+![](figures/xkcd_complexity_analysis.png){height=40%}
+
 # Mathematical Prereqs
 
 The remainder of this slideshow is mathematical prereqs. It's
@@ -33,7 +37,7 @@ CS3 and algorithmic design / analysis.
 - Sets can contain anything **except themselves**
 - Usually enclosed by curly braces
 - Can use `:` to mean "where"
-    - Ex: $\{ x : x \texttt{ is odd} \} = $ "the set of all
+    - Ex: $\{ x : x \texttt{ is odd} \} =$ "the set of all
         $x$ where $x$ is odd"
 - Ex: $\{ 1, 2, 3 \}, \{ 5, \texttt{banana}, \pi \}, \{\}$
 - The **empty set** $\{\}$ is also notated $\emptyset$
@@ -64,6 +68,29 @@ CS3 and algorithmic design / analysis.
 - The complement of the empty set is the universal set and
     vice versa: $\bar{\emptyset} = U$ and
     $\bar{U} = \emptyset$
+
+# Why sets cannot contain themselves: Russell's paradox
+
+Assume that sets may contain themselves. Following from this
+assumption is the set of all sets which *do not* contain
+themselves. Let this set be called $S$ and be defined
+$S = \{ x : x \notin x \}$.
+
+Does $S$ contain itself? That is to say, is $S \in S$? There are
+two cases: $S \in S$ and $S \notin S$.
+
+**Case 1**: If $S \in S$, then by definition $S \notin S$.
+Therefore, $(S \in S) \to (S \notin S)$. Case 1 causes a
+contradiction.
+
+**Case 2**: If $S \notin S$, then by definition $S \in S$.
+Therefore, $(S \notin S) \to (S \in S)$. Case 2 causes a
+contradiction.
+
+Since both case 1 and case 2 cause contradictions, the truth
+value of $S \in S$ can be neither true nor false and is thus a
+contradiction. Thus, a "properly-formed" set must not contain
+itself, lest a contradiction arise.
 
 # Sequences / tuples
 - A sequence is an ordered series of values, usually in
@@ -124,6 +151,8 @@ CS3 and algorithmic design / analysis.
 - Labeled graphs
     - Where some function $\lambda$ adds labels to nodes and/or
         vertices
+
+# Graph Properties
 - Paths / Cycles
     - A path through a graph is a series of edges where the
         source of the next edge is the target of the previous
@@ -169,11 +198,27 @@ CS3 and algorithmic design / analysis.
     - If $A$, takes the value of $B$
     - Else, is true
     - Equivalent to $\lnot A \lor B$
+    - In `C`: `A ? B : true`
+- `A IF AND ONLY IF B`: $A \iff B$
+    - Commonly shortened to **iff**
+    - Equivalent to $(A \to B) \land (B \to A)$
+
+# $\exists$ and $\forall$
+- $\exists a$: "There exists some $a$"
+    - Ex: $\exists a [ b = a ]$ means "there exists some $a$
+        such that $b = a$"
+- $\forall b$: "For all $b$"
+    - Ex: $\forall b [b \neq a]$ means "for all $b$,
+        $b \neq a$". Note that this is the negation of the
+        previous example:
+        $\forall b [b \neq a] \to \lnot \exists a [b = a]$
 
 # Proof by construction
-- A statement says that something must exist
+- Used when a theorem says that something must exist
 - Simply find that thing or provide an algorithm for finding
     it
+
+Example:
 
 **Thm:** There is an integer larger than nine.
 
@@ -182,36 +227,40 @@ is larger than nine. Therefore, at least one integer is larger
 than nine. Therefore, the theorem holds. End of proof.
 
 # Proof by contradiction
-- Make an assumption that you think is false
+- Assume that the theorem is false, then arrive at a
+    contradiction
+- Assume the negation of the theorem
 - Follow with logical steps making no further assumptions
 - Arrive at a paradox (for instance $1 = 0$)
 - Since you have derived a contradiction using only known
     truths and one assumption, that assumption must be false
 
-# Proof by contradiction example: Russell's paradox
+# Proof by contradiction example: Irrationality of $\sqrt{2}$
 
-**Thm:** Sets must not contain themselves.
+A number $a$ is rational iff there exist some integers $b$ and
+$c$ such that $a = \frac{b}{c}$. **Thm:** $\sqrt{2}$ is not
+rational.
 
-**Pf:** By contradiction. Assume that sets may contain
-themselves. Following from this assumption is the set of all
-sets which *do not* contain themselves. Let this set be called
-$S$ and be defined $S = \{ x : x \notin x \}$.
+**Pf:** By contradiction. Assume that $\sqrt{2}$ is rational.
+Then there must exist two integers $b, c$ such that
+$\sqrt{2} = \frac{b}{c}$. Without loss of generality, choose
+$b$ and $c$ to be such that they share no divisors. Since they
+share no divisors, they cannot both be divisible by $2$ and thus
+at least one of them must be odd. Then, we apply the following
+steps.
 
-Does $S$ contain itself? That is to say, is $S \in S$? There are
-two cases: $S \in S$ and $S \notin S$.
+Multiply both sides by $n$: $n \sqrt{2} = m$. Square both sides:
+$2 n^2 = m^2$.
 
-**Case 1**: If $S \in S$, then by definition $S \notin S$.
-Therefore, $(S \in S) \to (S \notin S)$. Case 1 causes a
-contradiction.
+Since $n^2$ is the square of an integer, $m^2$ is equal to $2$
+times some integer, making it even. Since the square of an odd
+is always odd (pf. excluded), $m$ is even and thus there exists
+some integer $k$ such that $m = 2k$. Substituting:
+$2n^2 = (2k)^2$. Simplifying: $n^2 = 2k^2$, implying that $n^2$
+and thus $n$ is even.
 
-**Case 2**: If $S \notin S$, then by definition $S \in S$.
-Therefore, $(S \notin S) \to (S \in S)$. Case 2 causes a
-contradiction.
-
-Since both case 1 and case 2 cause contradictions, the truth
-value of $S \in S$ can be neither true nor false and is thus a
-contradiction. Since the only assumption made was that sets are
-allowed to contain themselves, this must be false. End of proof.
+We have now derived both that $n$ and $m$ are even and that at
+least one of them is odd, causing a contradiction. End of proof.
 
 # Proof by induction
 - Used if the theorem makes a claim about a countably
@@ -258,4 +307,4 @@ integer $i$ implies that it holds for $j + 1$. Since we know
 that it holds for $0$, this means that the theorem holds for all
 nonnegative integers. End of proof.
 
-#
+# End of math prereqs. Next up: Automata and languages
