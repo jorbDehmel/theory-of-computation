@@ -1,0 +1,10 @@
+digraph {
+    rankdir="LR";
+    4 [style=filled];
+    entry [style=invis];
+    entry -> 1;
+
+    1 -> 2 [label="f"];
+    2 -> 3 [label="i, o"];
+    3 -> 4 [label="o"];
+}

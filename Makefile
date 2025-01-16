@@ -1,6 +1,7 @@
 PRESENTATIONS = docs/week1.pdf docs/week2.pdf
 ASSIGNMENTS = docs/assignment1.pdf docs/assignment2.pdf \
 	docs/assignment3.pdf docs/final.pdf
+PANDOC = pandoc
 
 .PHONY:	test
 test:	check
@@ -16,24 +17,28 @@ check:
 	@pandoc --version > /dev/null
 
 	@echo "Checking for graphviz (dot)..."
-	@dot --version > /dev/null
+	@dot -V > /dev/null
 
 	@echo "System is valid!"
 
 .PHONY:	all
 all:	$(PRESENTATIONS) $(ASSIGNMENTS)
 
-docs/%.pdf:	%/main.md
+docs/%.pdf:	%/main.md | images
 	@mkdir -p docs
-	pandoc -t beamer $< -o $@
+	$(PANDOC) -t beamer $< -o $@
 
-docs/assignment%.pdf:	assignment%/main.md
+docs/assignment%.pdf:	assignment%/main.md | images
 	@mkdir -p docs
-	pandoc $< -o $@
+	$(PANDOC) $< -o $@
 
-docs/final.pdf:	final/main.md
+docs/final.pdf:	final/main.md | images
 	@mkdir -p docs
-	pandoc $< -o $@
+	$(PANDOC) $< -o $@
+
+.PHONY:	images
+images:
+	$(MAKE) -C figures
 
 .PHONY:	format
 format:

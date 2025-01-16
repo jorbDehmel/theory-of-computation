@@ -8,9 +8,9 @@
 ## Part 1: Automata and languages
 
 - [Week 2: Finite-state acceptors (state machines)](week2/main.md)
-- [Week 3: Regular languages](week3/main.md)
+- [Week 3: Regular expressions, regular languages, and non-regular languages](week3/main.md)
 - [Week 4: Context-free grammars and PDA](week4/main.md)
-- [Week 5: Non-context-free languages](week5/main.md)
+- [Week 5: Non-context-free languages and the Chompsky hierarchy](week5/main.md)
 
 [Assignment 1: Automata and languages](assignment1/main.md)
 

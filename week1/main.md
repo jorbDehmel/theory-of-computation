@@ -59,6 +59,13 @@ CS3 and algorithmic design / analysis.
 - The **complement** of $A$, notated $\bar{A}$, is the set
     of all items $\notin A$. **Note:** This only works if
     you have a set of all items, called the **universe** $U$
+- The **power set** of $A$, notated $\mathcal{P}(A)$, is the
+    set of all subsets of $A$, including $\emptyset$.
+    - Ex:
+        $$
+        \mathcal{P}(\{0, 1\}) =
+            \{ \emptyset, \{0\}, \{1\}, \{0, 1\} \}
+        $$
 
 # Set math examples
 - A set $A$ intersected with its complement is the empty
