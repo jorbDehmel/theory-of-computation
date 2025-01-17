@@ -1,10 +1,14 @@
+// Recognizes /f(i|oo)z*/
+
 digraph {
     rankdir="LR";
-    4 [style=filled];
+    4 [shape=doublecircle];
     entry [style=invis];
     entry -> 1;
 
     1 -> 2 [label="f"];
-    2 -> 3 [label="i, o"];
+    2 -> 4 [label="i"];
+    2 -> 3 [label="o"];
     3 -> 4 [label="o"];
+    4 -> 4 [label="z"];
 }

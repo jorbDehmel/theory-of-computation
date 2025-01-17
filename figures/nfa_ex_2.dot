@@ -2,7 +2,7 @@ digraph {
     rankdir="LR";
 
     entry [style=invis];
-    4, 5 [style=filled];
+    4, 5 [shape=doublecircle];
 
     entry -> 1;
     1 -> 2, 3 [label="a"];

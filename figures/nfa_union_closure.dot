@@ -1,0 +1,11 @@
+digraph {
+    rankdir="LR";
+    entry [style=invis];
+    A, B [shape=box];
+
+    entry -> 0;
+    0 -> A, B [label=<&epsilon;>];
+
+    A [label="Entire A NFA here"];
+    B [label="Entire B NFA here"];
+}

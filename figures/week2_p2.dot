@@ -1,1 +1,14 @@
-digraph {}
+// Recognizes /(a|(ba*(a|b)a))*/
+
+digraph {
+    rankdir="LR";
+    1 [shape=doublecircle];
+    entry [style=invis];
+
+    entry -> 1;
+    1 -> 3 [label=<&epsilon;>];
+    3 -> 1 [label="a"];
+    1 -> 2 [label="b"];
+    2 -> 2 [label="a"];
+    2 -> 3 [label="a, b"];
+}

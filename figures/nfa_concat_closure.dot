@@ -1,0 +1,7 @@
+digraph {
+    rankdir="LR";
+    a_prime [shape=box, label="Entire A' NFA goes here"];
+    b [shape=box, label="Entire B NFA goes here"];
+
+    a_prime -> b [label=<&epsilon;>];
+}

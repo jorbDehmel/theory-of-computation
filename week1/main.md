@@ -314,4 +314,6 @@ integer $i$ implies that it holds for $j + 1$. Since we know
 that it holds for $0$, this means that the theorem holds for all
 nonnegative integers. End of proof.
 
-# End of math prereqs. Next up: Automata and languages
+# End of math prereqs. Next time: Automata and languages
+
+![](figures/nfa_ex_2.png)

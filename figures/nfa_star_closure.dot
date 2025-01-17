@@ -1,0 +1,10 @@
+digraph {
+    rankdir="LR";
+    entry [style=invis];
+    0 [shape=doublecircle];
+    a_prime [shape=box, label="Entire A' NFA goes here"];
+
+    entry -> 0;
+    0 -> a_prime [label=<&epsilon;>];
+    a_prime -> 0 [label=<&epsilon;>];
+}
