@@ -1,4 +1,9 @@
-PRESENTATIONS = docs/week1.pdf docs/week2.pdf
+PRESENTATIONS = docs/week1.pdf docs/week2.pdf docs/week3.pdf \
+	docs/week4.pdf docs/week5.pdf docs/week6.pdf \
+	docs/week7.pdf docs/week8.pdf docs/week9.pdf \
+	docs/week10.pdf docs/week11.pdf docs/week12.pdf \
+	docs/week13.pdf docs/week14.pdf
+
 ASSIGNMENTS = docs/assignment1.pdf docs/assignment2.pdf \
 	docs/assignment3.pdf docs/final.pdf
 PANDOC = pandoc
@@ -24,7 +29,7 @@ check:
 .PHONY:	all
 all:	$(PRESENTATIONS) $(ASSIGNMENTS)
 
-docs/%.pdf:	%/main.md | images
+docs/%.pdf:	presentations/%.md | images
 	@mkdir -p docs
 	$(PANDOC) -t beamer $< -o $@
 
