@@ -7,6 +7,12 @@ Mesa University. Using textbook "Introduction to the Theory of
 Computation", second edition by Michael Sipser (copyright 2006
 Thomson Course Technology).
 
+# Building documents
+
+To check your system for compatibility: `make check`.
+
+To build all documents: `make all`.
+
 # License
 
 The contents of this repo are licensed under the MIT software
