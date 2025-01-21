@@ -1,0 +1,8 @@
+// 1
+digraph first {
+    dpi=300;
+    rankdir="LR";
+    rank=same;
+    1.1 [shape=doublecircle label="1"];
+    1.1 -> 1.1 [label="a"];
+}

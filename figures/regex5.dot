@@ -1,0 +1,15 @@
+// 5
+digraph {
+    dpi=300;
+    rankdir="LR";
+    rank=same;
+
+    5.1 [label="1"];
+    5.2 [shape=doublecircle label="2"];
+    r1_5, r2_5 [shape=box];
+
+    r1_5 [label="First NFA here"];
+    r2_5 [label="Second NFA here"];
+
+    5.1 -> r1_5 -> r2_5 -> 5.2 [label=<&epsilon;>];
+}

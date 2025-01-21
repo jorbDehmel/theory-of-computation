@@ -1,0 +1,19 @@
+// 4
+digraph {
+    dpi=300;
+    rankdir="LR";
+    rank=same;
+
+    4.1 [label="1"];
+    4.2 [shape=doublecircle label="2"];
+
+    subgraph {
+        rankdir="TB";
+        r1_4, r2_4 [shape=box];
+    }
+
+    r1_4 [label="First NFA here"];
+    r2_4 [label="Second NFA here"];
+
+    4.1 -> r1_4, r2_4 -> 4.2 [label=<&epsilon;>];
+}

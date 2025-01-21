@@ -1,0 +1,7 @@
+// 3
+digraph third {
+    dpi=300;
+    rankdir="LR";
+    rank=same;
+    3.1 [shape=circle label="1"];
+}

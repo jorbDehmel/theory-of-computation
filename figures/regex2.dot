@@ -1,0 +1,7 @@
+// 2
+digraph second {
+    dpi=300;
+    rankdir="LR";
+    rank=same;
+    2.1 [shape=doublecircle label="1"];
+}

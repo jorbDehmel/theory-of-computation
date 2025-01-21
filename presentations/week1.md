@@ -5,32 +5,29 @@
 
 Textbook: Chapter 0 / Introduction
 
-# Why? (Motivation)
+# Motivation
+
+- **What are the limits of what computers can do?**
 
 - When solving a problem, we need to know how good a solution
     can ever be
 - Some problems cannot be solved
 - Must prove our programs halt in finite time on all input cases
 
-# What? (List of Topics)
-
-"What are the limits of what computers can do?"
-
-- Automata and language theory
-    - How are languages constructed and distinguished? What even
-        *is* "computation"?
-- Computability
-    - What problems can be solved?
-- Complexity theory
-    - How well have we solved a problem?
-
-![](figures/xkcd_complexity_analysis.png){height=40%}
+- **Automata and language theory**: What even *are* "problems"
+    and "computation"?
+- **Computability**: What problems can be solved?
+- **Complexity theory**: How well have we solved a problem?
 
 # Mathematical Prereqs
 
-The remainder of this slideshow is mathematical prereqs. It's
-mostly review from discrete structures I, with sprinklings of
-CS3 and algorithmic design / analysis.
+This class requires:
+
+- **Discrete structures** (mathematical terminology and proofs)
+- **CS3** (algorithms, complexity)
+
+The remainder of this slideshow goes over specific prerequisite
+topics.
 
 # Sets
 - Zero or more objects grouped together
