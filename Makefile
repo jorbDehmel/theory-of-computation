@@ -1,12 +1,16 @@
-PRESENTATIONS = docs/week1.pdf docs/week2.pdf docs/week3.pdf \
-	docs/week4.pdf docs/week5.pdf docs/week6.pdf \
-	docs/week7.pdf docs/week8.pdf docs/week9.pdf \
-	docs/week10.pdf docs/week11.pdf docs/week12.pdf \
-	docs/week13.pdf docs/week14.pdf
-
+PRESENTATION_NAMES = advanced_complexity \
+	advanced_computability church_turing complexity_intro \
+	context_free_grammars finite_acceptors intractability \
+	intro lambda_calc nondet_tm pda reducibility regularity \
+	space_complexity time_complexity turing_recog
 ASSIGNMENTS = docs/assignment1.pdf docs/assignment2.pdf \
 	docs/assignment3.pdf docs/final.pdf
+
 PANDOC = pandoc
+PRESENTATION_PATHS := $(PRESENTATION_NAMES:%=docs/%.pdf)
+
+.PHONY:	all
+all:	$(PRESENTATION_PATHS) $(ASSIGNMENTS)
 
 .PHONY:	test
 test:	check
@@ -25,9 +29,6 @@ check:
 	@dot -V > /dev/null
 
 	@echo "System is valid!"
-
-.PHONY:	all
-all:	$(PRESENTATIONS) $(ASSIGNMENTS)
 
 docs/%.pdf:	presentations/%.md | images
 	@mkdir -p docs

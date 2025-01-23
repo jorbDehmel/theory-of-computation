@@ -1,5 +1,5 @@
 
-# Week 1: Introduction to Introduction to the Theory of Computation
+# Introduction to Introduction to the Theory of Computation
 
 ![](figures/turing_machine.jpg)
 

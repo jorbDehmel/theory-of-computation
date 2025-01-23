@@ -1,5 +1,5 @@
 
-# Week 2: Finite-State Acceptors
+# Finite-State Acceptors
 
 ![](figures/chompsky_hierarchy.png){height=60%}
 
@@ -18,8 +18,7 @@ Textbook: 1.1 and 1.2
     subset of automata.
 
 - A **finite-state** automaton has a finite number of states
-    that it can transition through. Infinite-state automata are
-    not used.
+    that it can transition through.
 
 - A **deterministic** automaton has exactly one set of state
     transitions which follow from a given string. A
