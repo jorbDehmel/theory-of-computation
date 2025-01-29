@@ -1,7 +1,7 @@
 
 # Finite-State Acceptors
 
-![](figures/chompsky_hierarchy.png){height=60%}
+![](figures/chomsky_hierarchy.png){height=60%}
 
 Textbook: 1.1 and 1.2
 
@@ -87,7 +87,7 @@ exists some series of states $r_0 r_1 r_2 \ldots r_n \in Q^+$
 such that the following all hold:
 
 1) $r_0 = q_0$
-2) $\delta(r_i, w_{i+1}) = r_{i_1}$ for all $i = 0, \ldots, n_1$
+2) $\delta(r_i, w_{i+1}) = r_{i + 1}$ for all $i = 0, \ldots, n_1$
 3) $r_n \in F$
 
 **Def:** The "language of" operator. For an automaton $A$ over

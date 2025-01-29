@@ -10,7 +10,7 @@
 - [Finite-state acceptors (state machines)](docs/finite_acceptors.pdf)
 - [Regular expressions, regular languages, and non-regular languages](docs/regularity.pdf)
 - [Context-free grammars](docs/context_free_grammars.pdf)
-- [PDA, non-context-free languages, the Chompsky hierarchy](docs/pda.pdf)
+- [PDA, non-context-free languages, the Chomsky hierarchy](docs/pda.pdf)
 
 [Assignment 1: Automata and languages](docs/assignment1.pdf)
 
