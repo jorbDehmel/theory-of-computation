@@ -17,7 +17,7 @@
 ## Part 2: Computability theory
 
 - [The Church-Turing thesis and Turing machines](docs/church_turing.pdf)
-- [Turing recognizability and decidability](docs/turing_recog.pdf)
+- [Diagonalization, decidability examples](docs/diagonalization.pdf)
 - [Reducibility](docs/reducibility.pdf)
 - [Nondeterministic Turing Machines](docs/nondet_tm.pdf)
 
@@ -39,6 +39,7 @@
 
 ## Appendix: Bonus topics that won't be tested (if time)
 
+- [Deterministic CFGs (textbook 3rd edition only)]()
 - [Advanced computability theory](docs/advanced_computability.pdf)
 - [Advanced complexity analysis](docs/advanced_complexity.pdf)
 - [Intractability](docs/intractability.pdf)

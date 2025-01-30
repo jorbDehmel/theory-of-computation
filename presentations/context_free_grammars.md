@@ -44,7 +44,7 @@ where:
 
 1. $V$ is a finite set called the **variables** (these will be
     replaced by rules before we are done)
-2. $\Sigma$ is a finite set $V \cup \Sigma = \emptyset$ called
+2. $\Sigma$ is a finite set $V \cap \Sigma = \emptyset$ called
     the **terminals** (these cannot be replaced by rules in a
     CFG)
 3. $R$ is a finite set of **rules**, each rule being

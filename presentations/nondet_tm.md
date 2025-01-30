@@ -1,4 +1,4 @@
 
 # Nondeterministic Turing machines
 
-Textbook:
+Textbook: Chapter 3.2

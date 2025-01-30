@@ -19,8 +19,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential clang-format pandoc graphviz
+        sudo apt install -y make pandoc graphviz
 
-    - name: Run tests
+    - name: Run check
       run: |
-        make test
+        make check
