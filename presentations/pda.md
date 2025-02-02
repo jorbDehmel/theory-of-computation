@@ -62,11 +62,9 @@ $$
 **Note:** $\epsilon$ means "don't pop from the stack", `$` means
 "empty stack". We disallow the removal of `$`.
 
-# Equivalence with context-free grammars
+# Equivalence with context-free grammars pt. 1
 
 **Thm:** A language is context free iff some nPDA recognizes it.
-This proof is 7 pages of the textbook, so we will only go over
-the broad strokes.
 
 **Lemma 1:** A language being context free implies some nPDA
 recognizes it. (pg 115)
@@ -80,6 +78,122 @@ recognizes it. (pg 115)
 
 - By construction
 - We show how to create grammar rules from an nPDA in CFG form
+
+# Equivalence with context-free grammars pt. 2
+
+**Lemma 1:** All CFG have equivalent nPDA.
+
+- Each step of a CFG $A$ yields an **intermediate string** of
+    terminals and variables. We design $P$ to show whether some
+    series of substitutions on the starting variable of $A$ can
+    lead to the input string $w$
+- We will keep the current intermediate string partially on the
+    stack, eliminating any literals off the top as if we were a
+    NFA
+- We will branch nondeterministically when multiple rules could
+    apply
+
+**Note:** Pushing any string of finite length to the stack is
+equivalent to pushing each character at a time.
+
+# Equivalence with context-free grammars pt. 3
+
+The following steps create $P$.
+
+1. Push $\$$ and $A$'s starting variable onto the stack.
+2. Repeat these steps forever:
+    a. If the top of the stack is some variable $V$,
+        nondeterministically select each of the applicable rules
+        $V \to \cdots$ and replace $V$ on the stack
+    b. For as long as the top of the stack is a terminal,
+        move through the state machine as if it were an NFA,
+        popping from the stack each time a character matches the
+        input. If a character doesn't match,
+        **reject this branch of the nondeterminism.**
+    c. If the stack top is $\$$, enter the accept state. Doing
+        so accepts the input for the entire nondeterminism if it
+        has all been read.
+
+$P$ is a valid nPDA such that $\mathcal{L}(P) = \mathcal{L}(A)$.
+End of lemma 1.
+
+# Equivalence with context-free grammars pt. 4
+
+**Lemma 2:** All languages recognized by nPDA are context-free.
+
+First, we assume that our input nPHA has the following
+properties. If it does not, an equivalent one can be constructed
+(pf. exclude).
+
+1. It has only one accept state, $q_{\texttt{accept}}$
+2. It empties its state before accepting
+3. Each transition either pushes or pops, but not both and not
+    neither
+
+Let $A_{p,q}$ be a variable representing any valid nPDA path
+from state $p$ to $q$. Let the entry variable be
+$A_{q_0,q_{\texttt{accept}}}$.
+**$A_{p,q}$ will assume the stack is empty and leave it so.** If
+it pushes anything in its operation, it must pop before
+completion.
+
+# Equivalence with context-free grammars pt. 5
+
+Add the following rules to our CFG $G$:
+
+1. For every possible combination of $p, q, r \in Q$, add the
+    rule $A_{p,q} \to A_{p,r} A_{r,q}$
+2. For every $p \in Q$, add the rule $A_{p,p} \to \epsilon$
+3. For every possible combination of states $p, q, r, s \in Q$,
+    stack symbol $t \in \Gamma$, and (possibly $\epsilon$) input
+    characters $a, b, \in \Sigma_\epsilon$:
+    - **If** $\delta(p, a, \epsilon)$ contains $(r, t)$ (state
+        $p$ can move to state $r$ **pushing** $t$ on input $a$)
+        **and** $\delta(s, b, t)$ contains $(q, \epsilon)$
+        (new state $s$ can move to other new state $q$
+        **popping the same $t$** on new input $b$) **then** add
+        the rule $A_{p,q} \to a A_{r,s} b$
+
+- The first condition allows us to concatenate valid rules
+- The second condition means that it is free to get from a state
+    to itself (base case)
+- The third condition lets us handle stack pushing and popping,
+    as well as input consumption
+    - It also ensures that any consumptive rule
+        **maintains the stack size**, ensuring the stack is kept
+        empty at the end
+
+# Equivalence with context-free grammars pt. 6
+
+**Lemma 2.1:** $A_{p,q}$ generates $x$ iff $x$ can bring $P$
+from $p$ with empty stack to $q$ with empty stack. If this
+holds, lemma 2 holds.
+
+By design, rule $A_{p,q}$ brings the machine from state $p$ to
+state $q$. Condition 3 of the construction ensured that any time
+anything is pushed by a rule, that rule must pop it. Thus, the
+input contents of the stack to a rule are the output. Therefore,
+$A_{p,q}$ will bring itself from $p$ with an empty stack to $q$
+with an empty stack.
+
+A similar proof holds for the other direction of the iff
+(excluded here).
+
+# Equivalence with context-free grammars pt. 7
+
+Since $A_{p,q}$ generates $x$ iff $x$ can bring $P$ from $p$
+with empty stack to $q$ with empty stack,
+$A_{q_0, q_{\texttt{accept}}}$ generates $x$ iff $x$ is
+recognized by the nPDA. Thus, all nPDA languages are
+context-free. End of lemma 2.
+
+Since both directions hold, **nPDA and CFG are equivalent.** End
+of proof.
+
+**Corollary:** Since NFA are nPDA that ignore their stack, all
+regular languages are context-free. Since there exists at least
+one context-free language that is not regular, regular languages
+are a proper subset of context-free ones.
 
 # The Chomsky hierarchy
 
