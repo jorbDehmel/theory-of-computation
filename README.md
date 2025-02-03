@@ -7,7 +7,11 @@ Mesa University. Using textbook "Introduction to the Theory of
 Computation", second edition by Michael Sipser (copyright 2006
 Thomson Course Technology).
 
-# Building documents
+# Usage
+
+To enter a Docker container: `make docker`.
+
+To enter a Podman container: `make podman`.
 
 To check your system for compatibility: `make check`.
 

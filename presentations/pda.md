@@ -121,12 +121,12 @@ End of lemma 1.
 
 **Lemma 2:** All languages recognized by nPDA are context-free.
 
-First, we assume that our input nPHA has the following
+First, we assume that our input nPDA has the following
 properties. If it does not, an equivalent one can be constructed
 (pf. exclude).
 
 1. It has only one accept state, $q_{\texttt{accept}}$
-2. It empties its state before accepting
+2. It empties its stack before accepting
 3. Each transition either pushes or pops, but not both and not
     neither
 
@@ -274,6 +274,6 @@ $A$ is not context free.
 
 - See pg 126 of textbook
 
-# Next up: **Part 2: Computability theory**, the Church-Turing thesis, and Turing machines
+# Next up: The Church-Turing thesis, and Turing machines
 
 **An assignment on part 1 of the textbook should come soon**

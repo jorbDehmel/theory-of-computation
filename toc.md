@@ -11,15 +11,17 @@
 - [Regular expressions, regular languages, and non-regular languages](docs/regularity.pdf)
 - [Context-free grammars](docs/context_free_grammars.pdf)
 - [PDA, non-context-free languages, the Chomsky hierarchy](docs/pda.pdf)
+- [The Church-Turing thesis and Turing machines](docs/church_turing.pdf)
 
 [Assignment 1: Automata and languages](docs/assignment1.pdf)
 
 ## Part 2: Computability theory
 
-- [The Church-Turing thesis and Turing machines](docs/church_turing.pdf)
 - [Diagonalization, decidability examples](docs/diagonalization.pdf)
 - [Reducibility](docs/reducibility.pdf)
+- [Post's Correspondence Problem](docs/pcp.pdf)
 - [Nondeterministic Turing Machines](docs/nondet_tm.pdf)
+- [Advanced computability theory](docs/advanced_computability.pdf)
 
 [Assignment 2: Computability](docs/assignment2.pdf)
 
@@ -27,6 +29,7 @@
 
 - [Intro to complexity and asymptotic analysis](docs/complexity_intro.pdf)
 - [Time complexity classes: P and NP](docs/time_complexity.pdf)
+- [Linear Bounded Automata](docs/lba.pdf)
 - [Space complexity classes: PSPACE, L and NL](docs/space_complexity.pdf)
 
 [Assignment 3: Complexity](docs/assignment3.pdf)
@@ -37,10 +40,9 @@
 
 - Remaining time: Presentations
 
-## Appendix: Bonus topics that won't be tested (if time)
+## Appendix: Bonus topics if time permits
 
 - [Deterministic CFGs (textbook 3rd edition only)]()
-- [Advanced computability theory](docs/advanced_computability.pdf)
 - [Advanced complexity analysis](docs/advanced_complexity.pdf)
 - [Intractability](docs/intractability.pdf)
 - [The lambda calculus](docs/lambda_calc.pdf)

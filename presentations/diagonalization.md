@@ -176,18 +176,18 @@ is said to be **unrecognizable**.
 
 **Therefore, some languages are not recognizable.**
 
-# Proving the halting problem is recognizable
+# Proving the acceptance problem is recognizable
 
-**Def:** The halting problem / entscheidungsproblem. Given some
-TM $M$ and input $w$, does $M$ ever halt? We define the language
-$A_{TM}$ ($A$ for "accept") to be:
+**Def:** The acceptance problem. Given some TM $M$ and input
+$w$, does $M$ accept? We define the language $A_{TM}$ ($A$ for
+"accept") to be:
 
 $$
 A_{TM} = \{ \left< M, w \right> :
     M \texttt{ is a TM and accepts } w \}
 $$
 
-**Thm:** The halting problem ($A_{TM}$) is *recognizable* (a
+**Thm:** The acceptance problem ($A_{TM}$) is *recognizable* (a
 positive answer can be given, but not always in finite time).
 
 **Pf:** By construction. Let $A$ be a UTM taking input
@@ -196,7 +196,7 @@ a UTM, it can simulate $M(w)$. If $M(w)$ ever halts, $A$
 accepts. By definition, $A$ recognizes (but doesn't decide)
 $A_{TM}$. End of proof.
 
-# Proving the halting problem is undecidable
+# Proving the acceptance problem is undecidable
 
 **Thm:** $A_{TM}$ is undecidable.
 
@@ -215,7 +215,7 @@ Let $D$ be a new TM using $H$ as a subroutine (this is legal).
 Since $H$ is a decider, it always completes in finite time. We
 will design $D$ to be a decider as well.
 
-# Halting problem undecidability pt. 2
+# Acceptance problem undecidability pt. 2
 
 $D$ = "On input $\left< M \right>$, where $M$ is a TM:
 
@@ -232,7 +232,7 @@ $M(\left< M \right>)$ accepts.
 
 **What happens if we run $D(\left< D \right>)$?**
 
-# Halting problem undecidability pt. 3
+# Acceptance problem undecidability pt. 3
 
 $$
 D(\left< D \right>) = \begin{cases}
