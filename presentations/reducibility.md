@@ -3,18 +3,21 @@
 
 Textbook: Chapter 5
 
+![](figures/reducibility.png)
+
 # Recall: $A_{TM}$
 
 - $A_{TM}$ is the set of all TM-input pairs
     $\left< M, w \right>$ such that $M$ **A**ccepts $w$
-- We previously called this "the halting problem", but that's
-    not technically true (see later)
 - Church and Turing proved $A_{TM}$ is undecidable by
     contradiction
-- It's harder to find contradictions in other undecidable
-    languages: We need another way
+
+It's harder to find contradictions in other undecidable
+languages: **We need another way!**
 
 # Informal definition of reducibility
+
+- Some problems can be "reduced" to each other
 
 **Def:** Reducibility. For two problems $A$ and $B$, if $A$
 **reduces** to $B$, we can use a solution to $B$ to solve $A$.
@@ -34,8 +37,8 @@ will solve $A$):
 
 # Ex: The halting problem
 
-**Def:** The halting problem. The halting problem is the
-language:
+**Def:** The halting problem. Does a TM halt given its input?
+Formally:
 
 $$
     HALT_{TM} = \{ \left< M, w \right> : M

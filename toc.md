@@ -42,7 +42,6 @@
 
 ## Appendix: Bonus topics if time permits
 
-- [Deterministic CFGs (textbook 3rd edition only)]()
 - [Advanced complexity analysis](docs/advanced_complexity.pdf)
 - [Intractability](docs/intractability.pdf)
 - [The lambda calculus](docs/lambda_calc.pdf)

@@ -12,6 +12,7 @@ Textbook: Chapter 4
 - We can show that a set $A$ is the same size as another, $B$,
     by making a **1-to-1 mapping** from each element of $A$ to
     $B$
+    - This is called a **correspondence**
 - This works even for infinite sets!
 
 # Examples
@@ -83,19 +84,23 @@ between any two real numbers than there are natural numbers.
 
 # Infinity sizes
 
-**Def:** An infinite set is said to be **countable** iff there
-exists a correspondence between it and the natural numbers.
+**Def:** An infinite set is said to be **countable** if it is
+finite or there exists a correspondence between it and the
+natural numbers.
+
+- Ex: Natural numbers, even numbers, odd numbers, rational
+    numbers, **finite-length strings**
 
 **Def:** An infinite set is said to be **uncountable** iff there
 exists a correspondence between it and the real numbers.
 
-**Corollary:** Any uncountable set is larger than any countable
-set. Any countable set is larger than any finite set.
+- Ex: Real numbers, the power set of natural numbers,
+    **infinite strings over any alphabet $|\Sigma| > 1$**
 
 # Proving unrecognizable languages exist
 
-**Thm:** There are more languages on any $\Sigma$ than there are
-Turing machines.
+**Thm:** There are more languages on any $\Sigma : |\Sigma| > 1$
+than there are Turing machines.
 
 **Pf:** We will prove the set of all Turing machines is
 countably infinite, while the set of all languages on $\Sigma$
@@ -257,13 +262,26 @@ must be false. End of proof.
 
 **Proven by Church and Turing in 1936.**
 
+# Computability theory
+
+- There is at least one problem that **cannot be solved!**
+- Similar to Kurt Gödel, who proved there are true statements
+    that have no proof
+- Now we know not to look for an algorithm for $A_{TM}$: It
+    cannot be *decided*
+
+**Are there languages which cannot even be recognized?**
+
+- If so, no machine could test for membership, let alone in
+    finite time
+
 # Co-Turing-recognizability
 
 **Def:** A language $L$ is said to be **co-Turing-recognizable**
-if $\overline{L}$ is Turing-recognizable.
+if its complement $\overline{L}$ is Turing-recognizable.
 
 **Thm:** A language is decidable iff it is Turing-recognizable
-and co-Turing-recognizable. (pf excluded)
+and co-Turing-recognizable. (pf excluded, but intuitive)
 
 **Corollary:** A language is undecidable iff it or its
 complement are not Turing-recognizable.
@@ -280,4 +298,10 @@ complement must be Turing-unrecognizable. We already proved
 $A_{TM}$ is Turing-recognizable. Therefore, $\overline{A_{TM}}$
 must be Turing-unrecognizable. End of proof.
 
+- We have proved the undecidability of $A_{TM}$ **manually**
+- We used a paradoxical "trick"
+- What if no "trick" can be found? We need another way!
+
 # Next time: Reducibility
+
+![](figures/xkcd_halting_problem.png)
