@@ -75,7 +75,7 @@ a contradiction. Thus, $R$ cannot exist. End of proof.
 # $E_{TM}$: The emptiness problem
 
 $$
-E_{TM} = \{ \left< M, w \right> : M \texttt{ is a TM and }
+E_{TM} = \{ \left< M \right> : M \texttt{ is a TM and }
     \mathcal{L}(M) = \emptyset \}
 $$
 

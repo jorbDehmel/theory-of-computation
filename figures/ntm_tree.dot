@@ -1,0 +1,18 @@
+digraph {
+    node [shape=box label="" colorscheme=bupu9];
+
+    c_0 [label=<C<SUB>0</SUB>>];
+    c_0 -> c_1, c_2;
+    c_1 -> c_1_1;
+    c_2 -> c_2_1, c_2_2, c_2_3;
+    c_1_1 -> c_1_1_1, c_1_1_2, c_1_1_3;
+    c_2_2 -> c_2_2_1;
+
+    dots_1, dots_2, dots_3 [color=white fontcolor=gray label=<&#8942;>];
+
+    c_1_1_3 [style=filled label=<C<SUB>A</SUB>>];
+
+    c_1_1_1 -> dots_1 [color=gray];
+    c_1_1_2 -> dots_2 [color=gray];
+    c_2_2_1 -> dots_3 [color=gray];
+}

@@ -1,0 +1,1 @@
+{"rule":"COLLECTIVE_NOUN_VERB_AGREEMENT_VBP","sentence":"^\\QCreate an empty queue of configurations\nPush the entrance configuration \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q to the queue\\E$"}
