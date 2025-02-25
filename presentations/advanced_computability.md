@@ -239,6 +239,8 @@ Assume the following are true:
     a machine. Formally,
     $\{\left<\phi, \pi\right>:\pi\texttt{ is a proof of }\phi\}$
     is decidable
+    - Given a proof, we can check if it implies a given
+        statement
 2. If a statement is provable, it is true
 
 # Gödel pt. 2
@@ -250,6 +252,9 @@ enumerate the set of all proofs. If a given proof proves the
 statement in question, accept. This is a recognizer, but not a
 decider. End of proof.
 
+- Corollary: There is an algorithm to decide if a given
+    statement is provable. Let this algorithm be called **$P$**
+
 **Lemma 1.1:** $A_{TM}$ is reducible to
 $Th(\mathcal{N}, +, \times)$.
 
@@ -259,8 +264,8 @@ evolution of computation histories. Therefore,
 $Th(\mathcal{N}, +, \times)$ is Turing-complete and therefore
 undecidable.
 
-Note: The Church-Turing thesis suggests that
-$Th(\mathcal{N}, +, \times)$ is Turing-equivalent.
+- Consider encoding a TM in binary, then representing binary as
+    a series of additions and multiplications
 
 # Gödel pt. 3
 
@@ -271,17 +276,15 @@ is not provable.
 derive an algorithm to decide $Th(\mathcal{N}, +, \times)$, a
 contradiction of lemma 1.1.
 
-Take in some statement $\phi$. Simulate the algorithm from
-theorem 1 on both $\phi$ and $\lnot \phi$. Since a proof exists
-for $\phi$, one of these two instances will halt. Therefore, our
-system decides the truth value of $\phi$. Contradiction!
-
-End of proof.
+Take in some statement $\phi$. Simulate $P$ on both $\phi$ and
+$\lnot \phi$. Since a proof exists for $\phi$, one of these two
+instances will halt. Therefore, our system decides the truth
+value of $\phi$ ($A_{TM}$). Contradiction! End of proof.
 
 # Gödel pt. 4
 
-**Thm 3:** The sentence $\psi_{\texttt{unprovable}}$, as
-described in the proof, is unprovable.
+**Thm 3:** The sentence $\psi_{\texttt{unprovable}}$ = "this
+statement has no proof" is true and unprovable.
 
 **Pf:** Let $\phi_{M, w}$ be the statement "TM $M$ accepts input
 $w$". This is implied to exist for any TM $M$ and input $w$ by
@@ -290,16 +293,60 @@ lemma 1.1.
 We will construct the statement "This statement is not provable"
 using the recursion theorem.
 
-$S$ = "On any input:
+$S$ = "On any input **(including $0$)**:
 
 1. Obtain own description $\left< S \right>$ via the recursion
     theorem
 2. Construct the sentence
     $\psi_{\texttt{unprovable}} = \lnot \exists c [\psi_{S, 0}]$
-    using lemma 1.1. ('there is no input for which this TM
-    accepts')
-3.
-4. "
+    using lemma 1.1. ('this TM never accepts 0')
+    - If $\psi_{\texttt{unprovable}}$ is true, this TM never
+        accepts 0
+3. Run $P$ (the theorem prover) on $\psi_{\texttt{unprovable}}$
+4. If $P$ accepts (there is a proof for
+    $\psi_{\texttt{unprovable}}$), **accept**. If $P$ halts and
+    rejects (there is no proof for
+    $\psi_{\texttt{unprovable}}$), **reject.**"
+
+# Gödel pt. 5
+
+$$
+\begin{aligned}
+S &= \begin{cases}
+    \texttt{always accept if there is a proof for }
+        \psi_{\texttt{unprovable}} \\
+    \texttt{reject or loop if there is no proof for }
+        \psi_{\texttt{unprovable}} \\
+\end{cases} \\
+&= \begin{cases}
+    \texttt{accept if proof exists that } S
+        \texttt{ never accepts } 0 \\
+    \texttt{reject or loop otherwise} \\
+\end{cases}
+\end{aligned}
+$$
+
+**Run $S$ on input $0$**
+
+# Gödel pt. 6
+
+$S$ must accept, reject, or loop forever on $0$
+
+- If $S$ accepts $0$, proof exists that $S$ never accepts $0$
+    - Since all proven statements are true, this can't happen!
+    - Therefore, **this can never be the case**
+    - $S$ must reject or loop on $0$
+
+- "$S$ rejects or loops on $0$" is the same as
+    $\psi_{\texttt{unprovable}}$
+    - Only happens if no proof exists
+    - "This statement has no proof"
+
+- $\psi_{\texttt{unprovable}}$ being false causes a
+    contradiction
+    - Therefore, $\psi_{\texttt{unprovable}}$ must be true
+
+**The statement "this statement has no proof" is true**
 
 # Turing reducibility
 
