@@ -3,11 +3,13 @@
         "Bletchley",
         "entscheidungsproblem",
         "nondeterministically",
+        "nonpolynomial",
         "nonpolynomiality",
         "nonregular",
         "nontriviality",
         "polynomiality",
         "Satisfiability",
+        "simulatable",
         "uncountably"
     ]
 }

@@ -71,9 +71,8 @@ We want to find any $C_A$ in the tree following $C_0$. How?
 - Note: This algorithm will always find the shortest accepting
     computation history if one exists
 
-- Note: Convince yourself that queues and sets are legal data
-    structures to use within a TM (recall TMs and algorithms are
-    equivalent)
+Convince yourself that queues are legal data structures to use
+within a TM (recall TMs and algorithms are equivalent)
 
 # Breadth-first search on NTM configuration trees
 

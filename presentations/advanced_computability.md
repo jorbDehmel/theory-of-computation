@@ -31,8 +31,11 @@ In English:
 
 The idea:
 
-> "Print the previous twice: First with quotes and then without"
-> Print the previous twice: First with quotes and then without
+\
+
+> "Print the previous with quotes and then without"
+
+> Print the previous with quotes and then without
 
 # Kleene Recursion pt. 2
 
@@ -348,14 +351,168 @@ $S$ must accept, reject, or loop forever on $0$
 
 **The statement "this statement has no proof" is true**
 
-# Turing reducibility
+# Turing reducibility pt. 1
+
+- Is mapping reducibility the best explanation? **No!**
+- Consider: Could we prove that $\overline{A_{TM}}$ is
+    undecidable by mapping reducibility?
+    - Remember, $\overline{A_{TM}}$ is not Turing-recognizable
+    - Therefore, we can't even identify instances of it, let
+        along map them!
+- However, $\overline{A_{TM}}$ is intuitively reducible to
+    $A_{TM}$ and vice versa since a solution to one solves the
+    other
+
+- **Solution:** Oracle Turing Machines. An Oracle TM has a
+    "magic oracle" decider that it can call without cost at any
+    time
+    - Assume the "oracle" is magic: It can decide even
+        undecidable and unrecognizable languages
+
+# Turing reducibility pt. 2
+
+**Def:** A **TM $M$** with access to a decider for
+**language $B$** is written $M^B$.
+
+- Ex: A TM $T$ with access to a decider for $A_{TM}$ would be
+    written $T^{A_{TM}}$
+
+**Def:** If $M^B$ decides $A$, we say $A$ is
+**decidable relative** to $B$.
+    - Given a decider for $B$, we can decide $A$
+
+- **Much more intuitive than mapping reducibility**
+
+**Def:** If $A$ is decidable relative to $B$, then $A$ is
+**Turing reducible** to $B$, written $A \le_T B$.
+
+# Ex: $E_{TM} \le_T A_{TM}$
+
+**Thm:** $E_{TM} \le_T A_{TM}$ ("given a decider for $A_{TM}$,
+we can decide $E_{TM}$")
+
+**Pf:** By construction. Let `accepts(M, w)` be the oracle
+procedure deciding $A_{TM}$.
+
+```python
+def is_empty(M):        # Decides emptiness problem
+  def T(_):             # Define a helper TM T
+    for every string s: # Enumerate every possible string
+      if accepts(M, s): # If M accepts this random string
+        accept
+  if accepts(T, ''):    # T is empty iff not M(s)
+    reject
+  else:
+    accept
+```
+
+This decides $A_{TM}$. End of proof.
+
+# Ex: $A_{TM} \le_T E_{TM}$
+
+**Thm:** $A_{TM} \le_T E_{TM}$ ("given a decider for $E_{TM}$,
+we can decide $A_{TM}$")
+
+**Pf:** By construction. Let $is_empty(M)$ be an **oracle** (not
+the fn from the previous: That would be circular).
+
+```python
+def accepts(M, w): # Decides acceptance problem
+  def T(x):        # Helper TM
+    if x == w:
+      if M(w):     # Simulates M on w
+        accept
+    reject         # Rejects all non-w
+  if is_empty(T):  # Is empty iff M rejects w
+    reject
+  else:
+    accept         # Nonempty iff M accepts w
+```
+
+This decides $A_{TM}$. End of proof.
+
+# The *other* meaning of Turing-Equivalence
+
+- $E_{TM} \le_T A_{TM}$ **and** $A_{TM} \le_T E_{TM}$
+- In this case we say that $E_{TM}$ and $A_{TM}$ are
+    **Turing-equivalent**
+- Written $E_{TM} \equiv_T A_{TM}$
+
+This is an **equivalence relation**
+
+Not to be confused with the Turing-equivalence of a system $S$,
+where a TM can simulate $S$ and vice versa.
 
 # A definition of information
 
-# Proving compression minimality
+- There is no singular definition of information
+- *One* definition is the size of the minimal representation
+
+$$
+\begin{aligned}
+    A = \texttt{10101010101010101010} \\
+    B = \texttt{10111001011111101000}
+\end{aligned}
+$$
+
+- $A$ is just `01` 10 times
+- $B$ has "more information" than $A$, since it doesn't appear
+    to follow a pattern
+
+**Def:** Minimal descriptions. Let $x$ be a binary string. The
+**minimal description** of $x$, written $d(x)$, is the shortest
+string $\left< M, w \right>$ where TM $M$ on input $w$ halts
+with $x$ on its tape. The **descriptive complexity** of $x$,
+written $K(x)$, is
+
+$$
+K(x) = |d(x)|
+$$
+
+**Note:** $x$'s descriptive complexity **is not** its length! It
+can be **longer!**
+
+# Compression
+
+- $K(x)$ might be longer than $x$
+- If it's shorter, we can treat it as the compressed version,
+    running $M$ on $w$ to uncompress it
+
+**Def:** Let $x$ be a string. $x$ is said to be
+**$c$-compressible** for some natural number $c$ if
+
+$$
+K(x) \le |x| - c
+$$
+
+That is, if $|\left< M, w \right>| \le |x| - c$ for minimal
+$\left< M, w \right>$.
+
+If $x$ is not compressible by $1$, we say it is
+**incompressible**.
 
 # Incompressible strings
+
+**Thm:** There are incompressible strings of every length.
+
+**Pf:** If a string $x$ is compressible, there exists a
+description $d(x)$ such that $|d(x)| < |x|$. Let $n$ be any
+arbitrary integer.
+
+There are $2^n$ binary string of length $n$: However, there are
+only $\sum_{i = 1}^{n - 1} 2^i = 2^n - 1$ descriptions of length
+$< n$. Therefore, there must exist at least one incompressible
+string of length $n$. End of proof.
+
+# What do incompressible strings look like?
+
+- It can be shown that incompressible strings look like series
+    of random coin tosses
+- $K$ is **incomputable**, so no examples exist
+- If we had an example, we couldn't prove it was incompressable
 
 # Next up: Intro to complexity and asymptotic analysis
 
 **End of part 2 out of 3!**
+
+![](figures/asymptotes.png)

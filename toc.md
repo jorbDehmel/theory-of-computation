@@ -29,8 +29,9 @@
 
 - [Intro to complexity and asymptotic analysis](docs/complexity_intro.pdf)
 - [Time complexity classes: P and NP](docs/time_complexity.pdf)
-- [Linear Bounded Automata](docs/lba.pdf)
-- [Space complexity classes: PSPACE, L and NL](docs/space_complexity.pdf)
+- [Space complexity classes: LBA, PSPACE, L and NL](docs/space_complexity.pdf)
+- [Intractability](docs/intractability.pdf)
+- [Advanced complexity analysis](docs/advanced_complexity.pdf)
 
 [Assignment 3: Complexity](docs/assignment3.pdf)
 
@@ -42,6 +43,4 @@
 
 ## Appendix: Bonus topics if time permits
 
-- [Advanced complexity analysis](docs/advanced_complexity.pdf)
-- [Intractability](docs/intractability.pdf)
 - [The lambda calculus](docs/lambda_calc.pdf)

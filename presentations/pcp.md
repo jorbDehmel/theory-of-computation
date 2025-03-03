@@ -183,7 +183,7 @@ $$
     \left[
         \frac{t_3}{b_3}
     \right],
-    \cdots
+    \cdots,
     \left[
         \frac{t_k}{b_k}
     \right]
@@ -203,17 +203,17 @@ $$
     \left[
         \frac{\star t_3}{b_3 \star}
     \right],
-    \cdots
+    \cdots,
     \left[
         \frac{\star t_k}{b_k \star}
     \right],
     \left[
-        \frac{\diamond \star}{\diamond}
+        \frac{\star \diamond}{\diamond}
     \right]
 \right\}
 $$
 
-- $\left[ \frac{\diamond \star}{\diamond} \right]$ allows the
+- $\left[ \frac{\star \diamond}{\diamond} \right]$ allows the
     match to terminate with matching stars
 - Thus, $MPCP$ can be converted to $PCP$. Since $A_{TM}$ is
     reducible to $MPCP$, $PCP$ is undecidable. End of proof.
