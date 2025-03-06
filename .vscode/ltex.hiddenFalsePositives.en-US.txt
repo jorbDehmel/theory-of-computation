@@ -1,1 +1,3 @@
 {"rule":"COLLECTIVE_NOUN_VERB_AGREEMENT_VBP","sentence":"^\\QCreate an empty queue of configurations\nPush the entrance configuration \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-)[0-9]+\\Q to the queue\\E$"}
+{"rule":"MISSING_TO_BETWEEN_BE_AND_VB","sentence":"^\\QExamples:\nProve something is undecidable\nWrite a proof by reduction not covered in class\\E$"}
+{"rule":"MISSING_TO_BETWEEN_BE_AND_VB","sentence":"^\\QExamples:\nProve something is undecidable\nWrite a proof by reduction not covered in class\nDetail some interesting pre-existing result in computability\\E$"}

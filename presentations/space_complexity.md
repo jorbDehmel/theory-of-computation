@@ -134,4 +134,4 @@ $$
 
 - $NL$-completeness also exists
 
-# Next up: Advanced complexity analysis
+# Next up: Intractability

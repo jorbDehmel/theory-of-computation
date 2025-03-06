@@ -1,9 +1,10 @@
 PRESENTATION_NAMES = advanced_complexity \
 	advanced_computability church_turing complexity_intro \
 	context_free_grammars finite_acceptors intractability \
-	intro lambda_calc nondet_tm pda reducibility regularity \
-	space_complexity time_complexity diagonalization pcp
-ASSIGNMENTS = docs/final.pdf docs/assignment1.pdf
+	intro nondet_tm pda reducibility regularity space_complexity \
+	time_complexity diagonalization pcp
+ASSIGNMENTS = docs/final.pdf docs/assignment1.pdf \
+	docs/assignment2.pdf docs/assignment3.pdf
 
 PANDOC = pandoc
 PRESENTATION_PATHS := $(PRESENTATION_NAMES:%=docs/%.pdf)

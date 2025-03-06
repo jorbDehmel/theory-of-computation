@@ -40,7 +40,3 @@
 [Final paper **and** presentation](docs/final.pdf)
 
 - Remaining time: Presentations
-
-## Appendix: Bonus topics if time permits
-
-- [The lambda calculus](docs/lambda_calc.pdf)
