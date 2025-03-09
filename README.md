@@ -9,6 +9,9 @@ Thomson Course Technology).
 
 # Usage
 
+Compiled presentations and assignments can be found in `./docs`.
+The rest of this repo is the source code thereof.
+
 To enter a Docker container: `make docker`.
 
 To enter a Podman container: `make podman`.
