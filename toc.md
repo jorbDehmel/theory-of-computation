@@ -22,6 +22,7 @@
 - [Post's Correspondence Problem](docs/pcp.pdf)
 - [Nondeterministic Turing Machines](docs/nondet_tm.pdf)
 - [Advanced computability theory](docs/advanced_computability.pdf)
+- [Turing-Equivalence of $Th(\mathcal{N}, +, \times)$](docs/th_n.pdf)
 
 [Assignment 2: Computability](docs/assignment2.pdf)
 

@@ -301,7 +301,7 @@ $S$ = "On any input **(including $0$)**:
 1. Obtain own description $\left< S \right>$ via the recursion
     theorem
 2. Construct the sentence
-    $\psi_{\texttt{unprovable}} = \lnot \exists c [\psi_{S, 0}]$
+    $\psi_{\texttt{unprovable}} = \lnot \exists c [\phi_{S, 0}]$
     using lemma 1.1. ('this TM never accepts 0')
     - If $\psi_{\texttt{unprovable}}$ is true, this TM never
         accepts 0
