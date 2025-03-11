@@ -54,8 +54,8 @@ $$
     \land & \left[Log(b^a, b) = a \right] \\
     \land & \left[ Get_2(a, b) = \frac{Rem(a, 2^{b + 1}) -
         Rem(a, 2^{b - 1})}{2^b} \right] \\
-    \land & \left[Set_2(a, b, c) = a + (c - Get_2(a, b)) \cdot
-        2^b \right]) \\
+    \land & \left[Set_2(a, b, c) = a + 2^b (c - Get_2(a, b))
+        \right]) \\
 \end{aligned}
 $$
 
@@ -125,15 +125,17 @@ $$
 - We can then specify some initial configuration on the input
     string encoding in binary as $w$: $C_0 = 2^0 3^0 5^w$
 
+**$Th(\mathcal{N}, +, \times)$ is Turing complete!**
+
 # The Acceptance Problem in Peano Arithmetic
 
 - If we let the index of the accepting state $q_A$ be $A$, we
-    can ask "Does this TM accept?" as:
+    can ask "Does this TM $T$ accept binary string $w$?" as:
 
 $$
 \begin{aligned}
-    \phi_{A} = & \\
-    & \land \phi_{preliminary} \\
+    \phi_{T,w} =
+    & \phi_{preliminary} \\
     & \land \phi_{T} \\
     & \land \forall t [ C_{t + 1} = T(C_t) ] \\
     & \land [ C_0 = 2^0 3^0 5^w ] \\
@@ -141,7 +143,7 @@ $$
 \end{aligned}
 $$
 
-**$Th(\mathcal{N}, +, \times)$ is Turing complete!**
+# $\phi_{P, 0}$ vs $\exists c [\phi_{P, 0}]$
 
 # Next up: Whatever we were doing before
 

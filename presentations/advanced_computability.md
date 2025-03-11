@@ -287,14 +287,14 @@ value of $\phi$ ($A_{TM}$). Contradiction! End of proof.
 # Gödel pt. 4
 
 **Thm 3:** The sentence $\psi_{\texttt{unprovable}}$ = "this
-statement has no proof" is true and unprovable.
+statement has no proof **within the system**" is true.
 
 **Pf:** Let $\phi_{M, w}$ be the statement "TM $M$ accepts input
 $w$". This is implied to exist for any TM $M$ and input $w$ by
 lemma 1.1.
 
-We will construct the statement "This statement is not provable"
-using the recursion theorem.
+We will construct the statement "This statement is not provable
+**within the proof system**" using the recursion theorem.
 
 $S$ = "On any input **(including $0$)**:
 
@@ -343,13 +343,15 @@ $S$ must accept, reject, or loop forever on $0$
 - "$S$ rejects or loops on $0$" is the same as
     $\psi_{\texttt{unprovable}}$
     - Only happens if no proof exists
-    - "This statement has no proof"
+    - "This statement has no proof within the proof system"
 
 - $\psi_{\texttt{unprovable}}$ being false causes a
     contradiction
-    - Therefore, $\psi_{\texttt{unprovable}}$ must be true
+    - **Therefore, $\psi_{\texttt{unprovable}}$ must be true**
 
-**The statement "this statement has no proof" is true**
+- We have used a **more powerful proof system** to prove that
+    a **less powerful proof system** (Peano arithmetic) contains
+    unprovable truths
 
 # Turing reducibility pt. 1
 
