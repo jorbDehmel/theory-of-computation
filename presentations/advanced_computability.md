@@ -408,14 +408,14 @@ def is_empty(M):        # Decides emptiness problem
     accept
 ```
 
-This decides $A_{TM}$. End of proof.
+This decides $E_{TM}$. End of proof.
 
 # Ex: $A_{TM} \le_T E_{TM}$
 
 **Thm:** $A_{TM} \le_T E_{TM}$ ("given a decider for $E_{TM}$,
 we can decide $A_{TM}$")
 
-**Pf:** By construction. Let $is_empty(M)$ be an **oracle** (not
+**Pf:** By construction. Let `is_empty(M)` be an **oracle** (not
 the fn from the previous: That would be circular).
 
 ```python
