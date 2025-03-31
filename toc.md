@@ -30,6 +30,7 @@
 
 - [Intro to complexity and asymptotic analysis](docs/complexity_intro.pdf)
 - [Time complexity classes: P and NP](docs/time_complexity.pdf)
+- [$\lambda$-calculus](docs/lambda_calc.pdf)
 - [Space complexity classes: LBA, PSPACE, L and NL](docs/space_complexity.pdf)
 - [Intractability](docs/intractability.pdf)
 - [Advanced complexity analysis](docs/advanced_complexity.pdf)

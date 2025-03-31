@@ -3,6 +3,8 @@
 
 Textbook: 7.1
 
+![](figures/xkcd_linear_sort.png)
+
 # Running time
 
 - A deterministic **halting** TM has a max number of steps it
@@ -67,10 +69,8 @@ $$
 \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0
 $$
 
-In other words, as $n \to \infty$, $g(n)$ grown infinitely
+In other words, as $n \to \infty$, $g(n)$ grows infinitely
 larger and faster than $f(n)$.
-
-- The difference is subtle, but far-reaching!
 
 $$
 \begin{aligned}
@@ -78,6 +78,8 @@ $$
   f(n) \texttt{ is } o(g(n)) \iff &\forall c \exists n_0 \forall n [n_0 \le n \to f(n) < c g(n)] \\
 \end{aligned}
 $$
+
+- The difference is subtle, but far-reaching!
 
 # Polynomiality and nonpolynomiality
 

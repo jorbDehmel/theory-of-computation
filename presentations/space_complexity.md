@@ -67,7 +67,7 @@ $$
 
 - We don't think $P = NP$, but does the space equivalent hold?
 - As it turns out, **yes!** DTMs can simulate NTMs in polynomial
-    space
+    *space*
 
 **Def:** Savitch's theorem. For any function
 $f: \mathcal{N} \to \mathcal{R}^+$ where $f(n) \ge log(n)$,

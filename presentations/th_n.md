@@ -145,6 +145,13 @@ $$
 
 # $\phi_{P, 0}$ vs $\exists c [\phi_{P, 0}]$
 
+- $\phi_{P, 0}$ means "$\phi_{P, 0}$ is true$
+- $\exists c [\phi_{P, 0}]$ means "there is a proof for
+    $\phi_{P, 0}$"
+
+**Note:** Peano arithmetic without implicit function definition
+is called **Presburger arithmetic** and is equivalent to DFA.
+
 # Next up: Whatever we were doing before
 
 > Sing us a song you're the Peano man
