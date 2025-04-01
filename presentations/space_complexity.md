@@ -91,10 +91,18 @@ $$
 PSPACE = \bigcup_k SPACE(n^k)
 $$
 
+# $PSPACE = NPSPACE$
+
+Savitch's theorem says that, for any natural number $\epsilon$,
+$NSPACE(n^\epsilon) \subseteq SPACE(n^{2\epsilon})$. Therefore,
+$PSPACE = NPSPACE$.
+
 - We know $PSPACE = NPSPACE$ by Savitch's theorem. Any problem
     $\in P$ can access at most polynomial space, and any problem
     $\in NP$ can access at most nondeterministic polynomial
     space ($NPSPACE$)
+    - Therefore, $P \subseteq PSPACE = NPSPACE$ and
+        $NP \subseteq PSPACE = NPSPACE$
 - Let $EXPTIME$ be the set of all problems solvable in
     deterministic exponential time
 
@@ -127,11 +135,9 @@ logarithmic nondeterministic space.
 
 $$
 \begin{aligned}
-    L &=  SPACE(log(n))  \\
-    NL &= NSPACE(log(n)) \\
+    L &=  SPACE(\log n)  \\
+    NL &= NSPACE(\log n) \\
 \end{aligned}
 $$
-
-- $NL$-completeness also exists
 
 # Next up: Intractability
