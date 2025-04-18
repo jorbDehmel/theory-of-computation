@@ -3,25 +3,126 @@
 
 Textbook: Chapter 10
 
-# Approximation Algorithms
-
-- Even if a problem is $NP$-hard, we can find approximate
-    solutions $\in P$
-
 # Probabilistic Algorithms
 
-**Def:** $BPP$ is the class of languages which are recognized by
-probabilistic polynomial-time Turing machines with an error
-probability of $\frac{1}{3}$ (or equivalently any other constant
-$c$ where $0 < c < \frac{1}{2}$).
+**Def:** A **probabilistic Turing machine** $M$ is an NTM where
+each "coin-flip" step has 2 legal equally-probable next
+moves. Every branch $b$ of $M$ has a probability defined by:
 
-**Def:** $RP$ is the class of languages *recognized* by
-probabilistic polynomial-time Turing machines where any strings
-in the language are accepted with a probability
-$\ge \frac{1}{2}$ and any strings not in the language are
-rejected with a probability of $1$.
+$$
+\Pr[b] = 2^{-k}
+$$
 
-- No false positives, fewer than 50% false negatives
+where $k$ is the number of coin-flip steps in $b$. The
+probability that $M$ accepts $w$ is
+
+$$
+\Pr[M \texttt{ accepts } w] =
+    \sum_{b \texttt{ accepts } w} \Pr[b]
+$$
+
+We say **$M$ accepts $A$ with error probability $\epsilon$** if:
+
+1. $w \in A$ implies
+    $\Pr[M \texttt{ acccepts } w] \ge 1 - \epsilon$ and
+2. $w \notin A$ implies
+    $\Pr[M \texttt{ rejects } w] \ge 1 - \epsilon$
+
+This means the probability of $M$ being wrong is at most
+$\epsilon$.
+
+# Probabilistic Complexity Classes
+
+**Def:** $BPP$ (Bounded-Error Probabilistic Polynomial) is the
+class of languages which are recognized by probabilistic
+polynomial-time Turing machines with an error probability of
+$\frac{1}{3}$ (or equivalently any other constant $c$ where
+$0 < c < \frac{1}{2}$).
+
+ $BPP$       | Actually $F$ | Actually $T$
+-------------|--------------|--------------
+Answered $F$ | $\ge 1 - c$  | $< c$
+Answered $T$ | $< c$        | $\ge 1 - c$
+
+# Probabilistic Complexity Classes Pt. 2
+
+**Def:** $RP$ (Randomized Polynomial) is the class of languages
+recognized by probabilistic polynomial-time Turing machines
+where any strings in the language are accepted with a
+probability $\ge \frac{1}{2}$ and any strings not in the
+language are rejected with a probability of $1$.
+
+ $RP$        | Actually $F$ | Actually $T$
+-------------|--------------|-------------------
+Answered $F$ | $1$          | $< \frac{1}{2}$
+Answered $T$ | $0$          | $\ge \frac{1}{2}$
+
+# Example: Primality and Fermat's Little Theorem
+
+- A number $c$ is prime if $\forall a, b [ab \ne c]$
+- **Note**: Primality is now known to be $\in P$
+- We say $a$ and $b$ are **equivalent modulo $p$** if
+    $\exists k [a = b + kp]$ (they differ by a multiple of $p$)
+    - Then we say $a \equiv b (\mod p)$
+- Let $x \mod p = y$ mean that $y$ is the smallest integer such
+    that $x \equiv y (\mod p)$
+- Let $\mathcal{Z}_p^+$ be the set of nonnegative integers below
+    $p$
+
+**Thm:** Fermat's little theorem. If $p$ is prime and
+$a \in \mathcal{Z}_p^+$, then $a^{p - 1} \equiv 1 (\mod p)$.
+
+# Primality Pt. 2
+
+**Corollary:** By contraposition: if
+$a^{p - 1} \not\equiv 1 (\mod p)$ and $a \in \mathcal{Z}_p^+$,
+then $p$ is not prime. This is called a **Fermat test**.
+
+- This does not imply the converse!
+- A number $p$ is **pseudoprime** if it is composite and
+    $a^{p - 1} \not\equiv 1 (\mod p)$ for some $a$
+    - $a$ is called a **liar**
+    - A randomly chosen $a$ is a liar at most $\frac{1}{2}$ of
+        the time
+
+# Primality Pt. 3
+
+```py
+import random
+
+# Return whether p is probably prime
+# Probability of p being composite
+# and pseudoprime is 2 ** -k
+def pseudoprime(p, k) -> bool:
+    for i in range(k):
+        # Random uniform integer 1 <= a < p
+        a = random.randrange(1, p)
+        if (a ** (p - 1)) % p != 1:
+            return False
+    return True
+```
+
+# Primality Pt. 4
+
+```py
+def prime(p, k) -> bool:
+    if p % 2 == 0:
+        return p == 2  # Any non-2 evens
+    for i in range(k): # k Fermat tests
+        a = random.randrange(1, p)
+        if (a ** (p - 1)) % p != 1:
+            return False  # Fermat test
+        h = 0  # h is the exponent of 2
+        while (p // (2 ** h)) % 2 == 0:
+            h += 1
+        for e in range(h, 0, -1):
+            cur = a ** (2 ** e) % p
+            if cur != 1:
+                if cur != p - 1:
+                    return False
+                break
+    return True
+```
 
 # Alternation and Alternating Turing Machines
 
@@ -44,36 +145,12 @@ if **any** sub-branches do.
 - This allows us to do "short-circuit" boolean logic in special
     nondeterministic cases
 
-# The Polynomial Time Hierarchy
+# Next up: Nothing!
 
-# Interactive Proof Systems
+Bonus topics you can find in the book in this chapter:
 
-# Uniform Boolean Circuits
-
-# $P$-Completeness
-
-**Def:** A language $B$ is $P$-complete if both
-
-1. $B \in P$
-2. For every language $A$, if $A \in P$ then $A$ is log-space
-    reducible to $B$
-
-# Cryptography
-
-# Public-Key Cryptosystems
-
-<!-- $$
-f \in P \\
-\exists n_0 \forall F \in RP \forall k \in \mathbb{N} \forall w [ |w| \ge n_0 \to () ]
-$$ -->
-
-# One-Way Functions
-
-# Trapdoor Functions
-
-# Next up: Final presentations
-
-- Everyone should do a final presentation and/or project
-- Each person will have a full class period to present
-- Try to think up a "cool" topic not covered in class (or go
-    deeper into something that was covered)
+- $P$-Completeness
+- Cryptography
+- Public-Key Cryptosystems
+- One-Way Functions
+- Trapdoor Functions
